@@ -176,3 +176,8 @@ impl Clone for Box<dyn ProtocolSim> {
         self.clone_box()
     }
 }
+
+pub trait ProtocolSimSerde:
+    ProtocolSim + serde::Serialize + for<'de> serde::Deserialize<'de>
+{
+}
