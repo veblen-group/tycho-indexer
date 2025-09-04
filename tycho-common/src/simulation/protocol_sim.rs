@@ -55,6 +55,7 @@ impl fmt::Display for GetAmountOutResult {
 /// ProtocolSim trait
 /// This trait defines the methods that a protocol state must implement in order to be used
 /// in the trade simulation.
+#[typetag::serde]
 pub trait ProtocolSim: fmt::Debug + Send + Sync + 'static {
     /// Returns the fee of the protocol as ratio
     ///
@@ -176,5 +177,3 @@ impl Clone for Box<dyn ProtocolSim> {
         self.clone_box()
     }
 }
-
-pub trait ProtocolSimSerde: ProtocolSim + serde::Serialize {}
