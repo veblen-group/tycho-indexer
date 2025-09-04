@@ -177,7 +177,4 @@ impl Clone for Box<dyn ProtocolSim> {
     }
 }
 
-pub trait ProtocolSimSerde:
-    ProtocolSim + serde::Serialize + for<'de> serde::Deserialize<'de>
-{
-}
+pub trait ProtocolSimSerde: ProtocolSim + serde::Serialize {}
